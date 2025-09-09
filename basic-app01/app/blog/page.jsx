@@ -2,6 +2,9 @@ import { BlogCard } from '@/components/BlogCard'
 import React from 'react'
 import { blogData } from '../data'
 
+export const metadata={
+  title:"Blog || BlogSpace🚀"
+}
 const blog = () => {
   return (
     <main className="container mx-auto px-4 py-8">

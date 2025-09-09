@@ -2,6 +2,14 @@ import { blogData } from "@/app/data";
 import { CalendarDays, Clock, User, ArrowLeft, Heart, MessageCircle, Share2 } from "lucide-react";
 import Link from "next/link";
 
+export const generateMetadata = async ({ params }) => {
+  const { blogid } = await params
+  const post = blogData?.find((value) => value.id === blogid)
+  return {
+    title: `${post?.title} | Blog| BlogSpace🚀`
+  }
+}
+
 const BlogPage = async ({ params }) => {
   const { blogid } = await params;
   const post = blogData.find((val) => val.id === blogid);
@@ -95,8 +103,8 @@ const BlogPage = async ({ params }) => {
         <h1 className="text-xl font-bold text-gray-900">Comments (3)</h1>
         <div className=" w-[100%] mx-auto px-4 py-8  bg-white rounded-lg shadow-lg flex flex-col gap-5 p-6">
           <label className="text-lg  text-gray-900">Leave a comment</label>
-          <input type="text" className="w-[100%] py-2 px-3 border border-gray-300 rouded-lg focus:outline-none"/>
-          <textarea type="text" className="w-[100%] py-2 px-3 border border-gray-300 rouded-lg focus:outline-none"/>
+          <input type="text" className="w-[100%] py-2 px-3 border border-gray-300 rouded-lg focus:outline-none" />
+          <textarea type="text" className="w-[100%] py-2 px-3 border border-gray-300 rouded-lg focus:outline-none" />
           <button className=" w-[200px] px-4 py-2 bg-green-500 hover:bg-blue-700 text-white font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Post</button>
         </div>
       </div>
